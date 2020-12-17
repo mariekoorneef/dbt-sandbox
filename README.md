@@ -3,13 +3,11 @@
 ### Bicycle sharing
 The original dataset on Kaggle: [BIXI Montreal (public bicycle sharing system)](https://www.kaggle.com/aubertsigouin/biximtl).
 
-We randomly selected 500 rows (excl header) by running the (MacOS) `gshuf` shell command:
+I have randomly selected 500 rows (excl header) by running the (MacOS) `gshuf` shell command:
 
 ```sh
 { IFS= read -r head; echo "$head"; gshuf | head -n 500; } < OD_2014.csv 
 ```
-
-Note: to use `gshuf` homebrew install: `brew install coreutils`
 
 ### pgadmin
 - The `dpage/pgadmin4` image has a environment variable `PGADMIN_SERVER_JSON_FILE`, see [container_deployment](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html) and [Import/Export Servers](https://www.pgadmin.org/docs/pgadmin4/development/import_export_servers.html)
