@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_od_2014
+    columns:
+      - name: start_date
+        description: Date and time of the start of the trip ( AAAA-MM-JJ hh:mm )
+        tests:
+          - not_null
+          - dbt_utils.not_constant
+      - name: start_station_code
+        description: Start station ID
+      - name: end_date
+        description: Date and time of the end of the trip ( AAAA-MM-JJ hh:mm )
+      - name: end_station_code
+        desciption: End station ID
+      - name: duration_sec
+        description: Total travel time in seconds
+      - name: is_member
+        description: Total travel time in seconds
+        tests:
+          - accepted_values:
+              values: ['true', 'false']
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "start_date < end_date"

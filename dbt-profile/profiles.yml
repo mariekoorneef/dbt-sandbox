@@ -1,0 +1,12 @@
+dbt_bicycle_sharing: # this needs to match the profile: in your dbt_project.yml file
+  target: "{{ env_var('DBT_TARGET') }}"
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST') }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 5432
+      dbname: "{{ env_var('POSTGRES_DB')}}"
+      schema: "dbt_{{ env_var('DBT_USER') }}" # Replace this with dbt_your_name, e.g. dbt_bob
+      threads: 4
