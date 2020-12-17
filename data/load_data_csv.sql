@@ -10,3 +10,6 @@ create table od_2014 (
 );
 
 \copy od_2014 from '/tmp/OD_2014.csv' with delimiter ',' csv header;
+
+create table od_2015 as table od_2014 with no data;
+\copy od_2015 from '/tmp/OD_2015.csv' with delimiter ',' csv header;

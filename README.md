@@ -1,9 +1,20 @@
 # dbt-sandbox
 
-Download dataset from Kaggle: [BIXI Montreal (public bicycle sharing system)](https://www.kaggle.com/aubertsigouin/biximtl) and put files in `data/` folder.
+### Bicycle sharing
+The original dataset on Kaggle: [BIXI Montreal (public bicycle sharing system)](https://www.kaggle.com/aubertsigouin/biximtl).
+
+We randomly selected 500 rows (excl header) by running the (MacOS) `gshuf` shell command:
 
 ```sh
-docker-compose up -d
+{ IFS= read -r head; echo "$head"; gshuf | head -n 500; } < OD_2014.csv 
+```
+
+Note: to use `gshuf` homebrew install: `brew install coreutils`
+
+### Run
+
+```sh
+./start.sh
 ```
 
 - PGAdmin, PostgreSQL web administration: http://localhost:5050
