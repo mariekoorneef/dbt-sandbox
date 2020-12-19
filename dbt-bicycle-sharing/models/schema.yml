@@ -24,3 +24,7 @@ models:
     tests:
       - dbt_utils.expression_is_true:
           expression: "start_date < end_date"
+      - dbt_utils.expression_is_true:
+          expression: "duration_sec >= 60"
+      - dbt_utils.expression_is_true:
+          expression: "duration_sec <= 2*60*60"
